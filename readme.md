@@ -1,0 +1,1 @@
+Projects used to learn smart contract development.
