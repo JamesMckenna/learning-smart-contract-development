@@ -1,0 +1,30 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: NftMarketPlace
+    network: goerli
+    source:
+      address: "0xf35bb00CBa7f15b2b1ff49714563eD60B931214F"
+      abi: NftMarketPlace
+      startBlock: 7717405
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ItemBought
+        - ItemCanceled
+        - ItemListed
+      abis:
+        - name: NftMarketPlace
+          file: NftMarketPlace/abis/NftMarketPlace.json
+      eventHandlers:
+        - event: ItemBought(indexed address,indexed address,indexed uint256,uint256)
+          handler: handleItemBought
+        - event: ItemCanceled(indexed address,address,uint256)
+          handler: handleItemCanceled
+        - event: ItemListed(indexed address,indexed address,indexed uint256,uint256)
+          handler: handleItemListed
+      file: NftMarketPlace/NftMarketPlace.wasm

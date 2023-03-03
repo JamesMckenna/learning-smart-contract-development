@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/NftMarketPlace.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> NftMarketPlace.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.63% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>29/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.97% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>32/33</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+&nbsp;
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+&nbsp;
+error NftMarketPlace__PriceMustBeAboveZero();
+error NftMarketPlace__NftNotApprovedToBeSold();
+error NftMarketPlace__NftAlreadyListed(address nftAddress, uint256 tokenId);
+error NftMarketPlace__NftNotListed(address nftAddress, uint256 tokenId);
+error NftMarketPlace__NotNftOwner();
+error NftMarketPlace__PurchasePriceIsHigher(address nftAddress, uint256 tokenId, uint256 price);
+error NftMarketPlace__NoProceddsToWithdraw();
+error NftMarketPlace__TransferFailed();
+&nbsp;
+contract NftMarketPlace is ReentrancyGuard {
+&nbsp;
+    struct Listing {
+        uint256 price;
+        address seller;
+    }
+&nbsp;
+&nbsp;
+    event ItemListed(address indexed seller, address indexed nftAddress, uint256 indexed tokenId, uint256 price);
+    event ItemBought(address indexed sender, address indexed nftAddress, uint256 indexed tokenId, uint256 price);
+    event ItemCanceled(address indexed sender, address nftAddress, uint256 tokenId);
+&nbsp;
+    //NFT contract address to Nft tokenId to listing
+    mapping(address =&gt; mapping(uint256 =&gt; Listing)) private s_listings;
+    //Seller address to amount earned
+    mapping(address =&gt; uint256) private s_sellerProceeds;
+    ERC721 internal erc;
+&nbsp;
+    modifier notListed(address nftAddress, uint256 tokenId, address owner){
+        Listing memory listing = s_listings[nftAddress][tokenId];
+        if(listing.price &gt; 0) { revert NftMarketPlace__NftAlreadyListed(nftAddress, tokenId); }
+        _;
+    }
+    
+    modifier isListed(address nftAddress, uint256 tokenId){
+        Listing memory listing = s_listings[nftAddress][tokenId];
+        if(listing.price &lt;= 0) { revert NftMarketPlace__NftNotListed(nftAddress, tokenId); }
+        _;
+    }
+&nbsp;
+    modifier isOwner(address nftAddress, uint256 tokenId, address spender){
+        IERC721 nft = IERC721(nftAddress);
+        address owner = nft.ownerOf(tokenId);
+        if(spender != owner) { revert NftMarketPlace__NotNftOwner(); }
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Method for listing an nft on the market place
+     * @param nftAddress: Address of the NFT to be listed
+     * @param tokenId: The Token Id of the NFT to be listed
+     * @param price: The sale price of the NFT
+     * @dev Technically we could have the contract be the escrow for the NFTs but this way people can still hold thier NFT when listed 
+     */
+    function listItem(address nftAddress, uint256 tokenId, uint256 price) external notListed(nftAddress, tokenId, msg.sender) isOwner(nftAddress, tokenId, msg.sender) {
+        //TODO: have this contract accept payment in a subset of tokens. Use chainlink pricefeeds to convert from one token price to another
+        if(price &lt;= 0) { revert NftMarketPlace__PriceMustBeAboveZero(); }
+&nbsp;
+        // Can send nft to contract to hold. But that can be expensive and the contract would own the nft
+        // Or Owners can hold nft and give market place approval to sell nft to a 3rd party
+        IERC721 nft = IERC721(nftAddress);
+        if(nft.getApproved(tokenId) != address(this)) { revert  NftMarketPlace__NftNotApprovedToBeSold(); }
+&nbsp;
+        s_listings[nftAddress][tokenId] = Listing(price, msg.sender);
+        emit ItemListed(msg.sender, nftAddress, tokenId, price);
+    }
+&nbsp;
+    function buyItem(address nftAddress, uint256 tokenId) external payable <span class="missing-if-branch" title="else path not taken" >E</span>nonReentrant isListed(nftAddress, tokenId){
+        Listing memory listedItem = s_listings[nftAddress][tokenId];
+        if(msg.value &lt; listedItem.price) { revert NftMarketPlace__PurchasePriceIsHigher(nftAddress, tokenId, listedItem.price); }
+&nbsp;
+        //We don't want to send the payment directly to the owner, send it to the contract and have the owner withdraw. SEE: https://fravoll.gethub.io/solidity-patterns/pull_over_push.html
+        s_sellerProceeds[listedItem.seller] = s_sellerProceeds[listedItem.seller] + msg.value;
+        delete(s_listings[nftAddress][tokenId]);
+&nbsp;
+        //Call safeTransfer last to mitigate any reentrant attack
+        IERC721(nftAddress).safeTransferFrom(listedItem.seller, msg.sender, tokenId); 
+        emit ItemBought(msg.sender, nftAddress, tokenId, listedItem.price);
+    }
+&nbsp;
+    function cancelListing(address nftAddress, uint256 tokenId) external isOwner(nftAddress, tokenId, msg.sender) <span class="missing-if-branch" title="else path not taken" >E</span>isListed(nftAddress, tokenId){
+        delete(s_listings[nftAddress][tokenId]);
+        emit ItemCanceled(msg.sender, nftAddress, tokenId);
+    }
+&nbsp;
+    function updateListing(address nftAddress, uint256 tokenId, uint256 newPrice) external isListed(nftAddress, tokenId) isOwner(nftAddress, tokenId, msg.sender){
+        s_listings[nftAddress][tokenId].price = newPrice;
+        emit ItemListed(msg.sender, nftAddress, tokenId, newPrice);
+    }
+&nbsp;
+    function withDrawProceeds() external {
+        uint256 proceeds = s_sellerProceeds[msg.sender];
+        if(proceeds &lt;= 0) { revert NftMarketPlace__NoProceddsToWithdraw(); }
+&nbsp;
+        //update/mutate state of contract before sending out any funds
+        s_sellerProceeds[msg.sender] = 0;
+&nbsp;
+        (bool success, ) = payable(msg.sender).call{value: proceeds}("");
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(!success){
+            revert NftMarketPlace__TransferFailed();
+        }
+    }
+&nbsp;
+    function getListing(address nftAddress, uint256 tokenId) external view returns(Listing memory){
+        return s_listings[nftAddress][tokenId];
+    }
+&nbsp;
+    function getProceedsOfSeller(address seller) external view returns(uint256){
+        return s_sellerProceeds[seller];
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 02 2022 18:31:41 GMT-0600 (Mountain Daylight Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

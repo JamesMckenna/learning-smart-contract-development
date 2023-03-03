@@ -1,0 +1,56 @@
+The EVM can emit events. events are not stoared as part of a smart contract, BUT ARE STORED (SOMEWHERE in the logging data structure of the EVM, outside the smartcontract) ON THE BLOCKCHAIN. they are stored in a graph (??) and can be queried later.
+EXAMPLE:
+event storeNumber(uint256 indexed oldNumber, uint256 indexed newNumber, uint256 addedNumber, address sender);
+Notice the Indexed keyword for the parameters. An event declaration can have (up to 3) indexed paramaters and non-indexed parameters. Indexed Parameters are also known as Topics. Indexed parameters are searchable.
+To emit and event exmaple:
+emit storedNumber(favoriteNumber, _favoriteNumber, _favoriteNumber + favoriteNumber, msg.sender);
+
+
+yarn hardhat coverage
+yarn hardhat compile
+yarn hardhat test --network hardhat
+yarn hardhat test --network goerli - staging test
+yarn hardhat console --network goerli - interact with deploed contracts???
+
+yarn hardhat deploy --network hardhat
+yarn hardhat console --network hardhat
+yarn hardhat node - to spin up local hardhat network
+
+
+yarn hardhat deploy --network goerli
+yarn hardhat run scripts/mockOffchain.js --network localhost
+
+//yarn hardhat node will run through the deploy scripts
+//in a new terminal, yarn hardhat run scripts/mint-and-list.js --network localhost
+
+IPFS:
+Public Gateway: https://ipfs.io/ipfs/CID - when browser extention or brave won't work
+user@user-machine:~/.ipfs$ config
+
+
+"data:image/svg+xml;base64,[an-encoded-image-to-base64-string]" in browser address bar
+data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgd2lkdGg9IjQwMCIgIGhlaWdodD0iNDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgZmlsbD0ieWVsbG93IiByPSI3OCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGcgY2xhc3M9ImV5ZXMiPgogICAgPGNpcmNsZSBjeD0iNjEiIGN5PSI4MiIgcj0iMTIiLz4KICAgIDxjaXJjbGUgY3g9IjEyNyIgY3k9IjgyIiByPSIxMiIvPgogIDwvZz4KICA8cGF0aCBkPSJtMTM2LjgxIDExNi41M2MuNjkgMjYuMTctNjQuMTEgNDItODEuNTItLjczIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6IGJsYWNrOyBzdHJva2Utd2lkdGg6IDM7Ii8+Cjwvc3ZnPg==
+
+
+
+
+The 4 ways to call a smart contract function: 
+1) (success, ) = address(c).call(abi.encodeWithSignature("myfunction(uint256,uint256)", 400,500));
+2) (success, ) = address(c).call(abi.encodeWithSelector(bytes4(keccak256("myfunction(uint256,uint256)")), 400,500)  );
+3) (success, ) = address(c).call(  bytes4(keccak256("myfunction(uint256,uint256)")),    400, 500);
+4) contract_instance.myfunction(400,500);
+Use #4 when ever posible. 1-3 are used to call a function in a blockchain transaction's data field
+
+
+
+
+
+Next JS
+yarn create next-app .
+yarn dev
+yarn add web3uikit moralis react-moralis - this has a lot of problems with dependencies. See Raffle project to get working dependency versions
+
+yarn add tailwindcss postcss autoprefixer - tailwindcss.com/docs/guides/nextjs to set up and use
+yarn tailwindcss init -p
+
+

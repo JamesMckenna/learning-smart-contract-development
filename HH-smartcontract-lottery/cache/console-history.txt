@@ -1,0 +1,11 @@
+const up = await raffleC.checkUpkeep()
+state
+const state = await raffleC.getRaffleState()
+recentWinner.toString()
+const recentWinner = await raffleC.getRecentWinner()
+response.toString()
+response
+const response = await raffleC.getNumberOfPlayers()
+raffleC.getNumberOfPlayers()
+const raffleC = await ethers.getContract("Raffle");
+.help
